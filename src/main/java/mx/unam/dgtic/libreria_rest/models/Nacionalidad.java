@@ -1,5 +1,6 @@
 package mx.unam.dgtic.libreria_rest.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -24,18 +25,8 @@ public class Nacionalidad {
     private String nacionalidadName;
 
 //    @OneToMany(mappedBy = "nacionalidad", fetch = FetchType.LAZY)
+//    //@JsonBackReference
 //    @JsonManagedReference
 //    private List<Autor> autores;
 
-//    public Nacionalidad(String nacionalidadName) {
-//        this.nacionalidadName = nacionalidadName;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Nacionalidad{" +
-//                "id=" + id +
-//                ", nacionalidad='" + nacionalidadName + '\'' +
-//                '}';
-//    }
 }

@@ -1,6 +1,7 @@
 package mx.unam.dgtic.libreria_rest.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -30,34 +31,13 @@ public class Autor {
     @Column(name = "apellido_2")
     private String apellidoDos;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_nacionalidad")
-    @JsonBackReference
+    //@JsonManagedReference
+    ////@JsonBackReference
     private Nacionalidad nacionalidad;
 
-    @ManyToMany(mappedBy = "autores", fetch = FetchType.LAZY)
-    private List<Libro> libros;
+//    @ManyToMany(mappedBy = "autores", fetch = FetchType.LAZY)
+//    private List<Libro> libros;
 
-
-//    public Autor(String nombre, String apellidoUno, String apellidoDos, Nacionalidad nacionalidad) {
-//        this.nombre = nombre;
-//        this.apellidoUno = apellidoUno;
-//        this.apellidoDos = apellidoDos;
-//        this.nacionalidad = nacionalidad;
-//    }
-
-//    public Autor(String nombre) {
-//        this.nombre = nombre;
-//    }
-
-//    @Override
-//    public String toString() {
-//        return "Autor{" +
-//                "id=" + id +
-//                ", nombre='" + nombre + '\'' +
-//                ", apellidoUno='" + apellidoUno + '\'' +
-//                ", apellidoDos='" + apellidoDos + '\'' +
-//                ", nacionalidad='" + nacionalidad.getNacionalidadName() + '\'' +
-//                '}';
-//    }
 }
