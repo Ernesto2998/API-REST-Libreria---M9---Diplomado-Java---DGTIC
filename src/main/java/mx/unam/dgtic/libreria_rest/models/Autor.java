@@ -37,8 +37,6 @@ public class Autor {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_nacionalidad")
-    //@JsonManagedReference
-    ////@JsonBackReference
     private Nacionalidad nacionalidad;
 
     @ManyToMany(mappedBy = "autores", fetch = FetchType.LAZY)
