@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Nacionalidad {
     @Column(name = "id_nacionalidad")
     private Integer id;
 
+    @NotNull(message = "El nombre debe de proporcionarse")
     @NotBlank(message = "El campo nacionalidad no puede estar vacío")
     @Column(nullable = false, name = "nacionalidad")
     private String nacionalidadName;

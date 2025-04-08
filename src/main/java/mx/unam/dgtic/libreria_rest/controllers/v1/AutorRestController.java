@@ -1,5 +1,6 @@
 package mx.unam.dgtic.libreria_rest.controllers.v1;
 
+import jakarta.validation.Valid;
 import mx.unam.dgtic.libreria_rest.models.Autor;
 import mx.unam.dgtic.libreria_rest.services.v1.interfaces.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,12 @@ public class AutorRestController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Autor> createAutor(@RequestBody Autor autor){
+    public ResponseEntity<Autor> createAutor(@Valid  @RequestBody Autor autor){
         return ResponseEntity.ok(autorService.saveAutor(autor));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Autor> updateAutor(@PathVariable Integer id, @RequestBody Autor autor){
+    public ResponseEntity<Autor> updateAutor(@Valid @PathVariable Integer id, @RequestBody Autor autor){
         return ResponseEntity.ok(autorService.updateAutor(id, autor));
     }
 

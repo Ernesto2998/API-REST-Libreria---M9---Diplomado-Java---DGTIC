@@ -1,5 +1,6 @@
 package mx.unam.dgtic.libreria_rest.services.v1;
 
+import mx.unam.dgtic.libreria_rest.exceptions.NoExisteAutorException;
 import mx.unam.dgtic.libreria_rest.models.Autor;
 import mx.unam.dgtic.libreria_rest.repositories.AutorRepository;
 import mx.unam.dgtic.libreria_rest.services.v1.interfaces.AutorService;
@@ -22,7 +23,7 @@ public class AutorServiceImpl implements AutorService {
     @Override
     public Autor findById(Integer id) {
         return autorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Autor no encontrado en Find by ID"));
+                .orElseThrow(() -> new NoExisteAutorException("Autor no encontrado en Find by ID", id));
     }
 
     @Override
@@ -39,13 +40,13 @@ public class AutorServiceImpl implements AutorService {
                     autorExistente.setApellidoDos(autor.getApellidoDos());
                     autorExistente.setNacionalidad(autor.getNacionalidad());
                     return autorRepository.save(autorExistente);
-                }).orElseThrow(() -> new RuntimeException("Autor con encontrado en el UPDATE con ID: " + id));
+                }).orElseThrow(() -> new NoExisteAutorException("Autor con encontrado en el UPDATE con ID: ", id));
     }
 
     @Override
     public Autor deleteAutor(Integer id) {
         Autor autor = autorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("El Autor no se encuentra en el DELETE"));
+                .orElseThrow(() -> new NoExisteAutorException("El Autor no se encuentra en el DELETE", id));
         autorRepository.deleteById(id);
         return autor;
     }

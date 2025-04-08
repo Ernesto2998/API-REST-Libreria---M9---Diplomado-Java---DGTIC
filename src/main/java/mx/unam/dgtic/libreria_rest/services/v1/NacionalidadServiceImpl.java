@@ -1,5 +1,6 @@
 package mx.unam.dgtic.libreria_rest.services.v1;
 
+import mx.unam.dgtic.libreria_rest.exceptions.NoExisteNacionalidadException;
 import mx.unam.dgtic.libreria_rest.models.Nacionalidad;
 import mx.unam.dgtic.libreria_rest.repositories.NacionalidadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class NacionalidadServiceImpl implements NacionalidadService {
     @Override
     public Nacionalidad findById(Integer id) {
         return nacionalidadRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("No se encontró la nacionalidad con ID: " + id));
+                .orElseThrow(() -> new NoExisteNacionalidadException("No se encontró la nacionalidad en Find by Id", id));
     }
 
     @Override
@@ -35,13 +36,13 @@ public class NacionalidadServiceImpl implements NacionalidadService {
                 .map(nacionalidadExistente -> {
                     nacionalidadExistente.setNacionalidadName(nacionalidad.getNacionalidadName());
                     return nacionalidadRepository.save(nacionalidadExistente);
-                }).orElseThrow(() -> new RuntimeException("Nacionalidad no encontrada para hacer UPDATE con ID: " + id));
+                }).orElseThrow(() -> new NoExisteNacionalidadException("Nacionalidad no encontrada para hacer UPDATE", id));
     }
 
     @Override
     public Nacionalidad deleteNacionalidad(Integer id) {
         Nacionalidad nacionalidad = nacionalidadRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Nacionalidad no encontrada en DELETE con ID: " + id));
+                .orElseThrow(() -> new NoExisteNacionalidadException("Nacionalidad no encontrada en DELETE", id));
         nacionalidadRepository.deleteById(id);
         return nacionalidad;
     }

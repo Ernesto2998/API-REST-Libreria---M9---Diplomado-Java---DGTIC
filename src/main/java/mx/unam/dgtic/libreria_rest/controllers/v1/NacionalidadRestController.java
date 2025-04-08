@@ -1,5 +1,6 @@
 package mx.unam.dgtic.libreria_rest.controllers.v1;
 
+import jakarta.validation.Valid;
 import mx.unam.dgtic.libreria_rest.models.Nacionalidad;
 import mx.unam.dgtic.libreria_rest.services.v1.interfaces.NacionalidadService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,12 @@ public class NacionalidadRestController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Nacionalidad> createNacionalidad(@RequestBody Nacionalidad nacionalidad){
+    public ResponseEntity<Nacionalidad> createNacionalidad(@Valid  @RequestBody Nacionalidad nacionalidad){
         return ResponseEntity.ok(nacionalidadService.saveNacionalidad(nacionalidad));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Nacionalidad> updateNacionalidad(@PathVariable Integer id, @RequestBody Nacionalidad nacionalidad){
+    public ResponseEntity<Nacionalidad> updateNacionalidad(@Valid @PathVariable Integer id, @RequestBody Nacionalidad nacionalidad){
         return ResponseEntity.ok(nacionalidadService.updateNacionalidad(id, nacionalidad));
     }
 
