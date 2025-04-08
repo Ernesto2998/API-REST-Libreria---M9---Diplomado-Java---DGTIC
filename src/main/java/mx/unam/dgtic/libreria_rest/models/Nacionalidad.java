@@ -26,9 +26,9 @@ public class Nacionalidad {
     @Column(nullable = false, name = "nacionalidad")
     private String nacionalidadName;
 
-//    @OneToMany(mappedBy = "nacionalidad", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "nacionalidad", fetch = FetchType.LAZY)
 //    //@JsonBackReference
 //    @JsonManagedReference
-//    private List<Autor> autores;
+    private List<Autor> autores;
 
 }

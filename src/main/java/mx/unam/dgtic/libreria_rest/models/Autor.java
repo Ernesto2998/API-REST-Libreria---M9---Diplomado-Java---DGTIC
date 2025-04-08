@@ -41,7 +41,8 @@ public class Autor {
     ////@JsonBackReference
     private Nacionalidad nacionalidad;
 
-//    @ManyToMany(mappedBy = "autores", fetch = FetchType.LAZY)
-//    private List<Libro> libros;
+    @ManyToMany(mappedBy = "autores", fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<Libro> libros;
 
 }
