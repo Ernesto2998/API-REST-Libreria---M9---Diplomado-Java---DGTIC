@@ -12,6 +12,5 @@ public class NacionalidadDto {
 
     @NotNull(message = "El nombre debe de proporcionarse")
     @NotBlank(message = "El campo nacionalidad no puede estar vacío")
-    @Column(nullable = false, name = "nacionalidad")
     private String nacionalidadName;
 }
