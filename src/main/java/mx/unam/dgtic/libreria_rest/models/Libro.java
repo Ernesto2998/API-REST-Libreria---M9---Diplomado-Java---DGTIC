@@ -36,11 +36,11 @@ public class Libro {
     @Max(value = 100, message = "El decuento NO puede superar el 100%")
     private Integer descuento;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_editorial")
     private Editorial editorial;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "libro_clasificacion", // Nombre de la tabla intermedia
             joinColumns = @JoinColumn(name = "id_libro"), // Clave foránea hacia `Libro`
@@ -48,7 +48,7 @@ public class Libro {
     )
     private List<Clasificacion> clasificaciones;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "libro_autor", // Nombre de la tabla intermedia
             joinColumns = @JoinColumn(name = "id_libro"), // Clave foránea hacia `Libro`

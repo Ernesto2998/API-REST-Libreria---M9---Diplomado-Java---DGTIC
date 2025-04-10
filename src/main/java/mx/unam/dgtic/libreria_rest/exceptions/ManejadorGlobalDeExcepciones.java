@@ -1,11 +1,14 @@
 package mx.unam.dgtic.libreria_rest.exceptions;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.transaction.TransactionSystemException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -78,5 +81,21 @@ public class ManejadorGlobalDeExcepciones {
         detalle.put("status", HttpStatus.NOT_FOUND);
 //        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(detalle);
         return ResponseEntity.ok(detalle);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<HashMap<String, Object>> handleValidationException(ConstraintViolationException ex) {
+        HashMap<String, Object> response = new HashMap<>();
+        response.put("timeStamp", LocalDateTime.now());
+        response.put("ruta", "/api/v2/libro/");  // Cambia esto según la ruta actual
+        response.put("mensaje", "Error de validación");
+
+        HashMap<String, String> detalles = new HashMap<>();
+        for (ConstraintViolation<?> violation : ex.getConstraintViolations()) {
+            detalles.put(violation.getPropertyPath().toString(), violation.getMessage());
+        }
+
+        response.put("detalle", detalles);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }
