@@ -1,0 +1,594 @@
+{
+	"info": {
+		"_postman_id": "ac2426b4-92c1-4f6e-ae5f-819d72611e6e",
+		"name": "M9 - PF - Libreria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29594125"
+	},
+	"item": [
+		{
+			"name": "v2",
+			"item": [
+				{
+					"name": "Autor",
+					"item": [
+						{
+							"name": "findAll_Autores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}autor/",
+									"host": [
+										"{{base}}{{v2}}autor"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById_Autor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}autor/26",
+									"host": [
+										"{{base}}{{v2}}autor"
+									],
+									"path": [
+										"26"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post_Autor",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"El Gabo\",\r\n    \"apellidoUno\": \"García\",\r\n    \"apellidoDos\": \"Márquez\",\r\n    \"nacionalidadId\": 3,\r\n    \"nacionalidad\": \"Argentina\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}autor/",
+									"host": [
+										"{{base}}{{v2}}autor"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "put_Autor",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"El Gabo\",\r\n    \"apellidoUno\": \"Chapo\",\r\n    \"apellidoDos\": \"Márquez\",\r\n    \"nacionalidadId\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}autor/28",
+									"host": [
+										"{{base}}{{v2}}autor"
+									],
+									"path": [
+										"28"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete_Autor",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}autor/28",
+									"host": [
+										"{{base}}{{v2}}autor"
+									],
+									"path": [
+										"28"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Libro",
+					"item": [
+						{
+							"name": "findAll_Libros",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}libro/",
+									"host": [
+										"{{base}}{{v2}}libro"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById_Libro",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}libro/44",
+									"host": [
+										"{{base}}{{v2}}libro"
+									],
+									"path": [
+										"44"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post_Libro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"Nuevo Libro\",\r\n    \"tipoPasta\": \"Blanda\",\r\n    \"sinopsis\": \"Libro de prueba\",\r\n    \"precio\": 19.99,\r\n    \"descuento\": 21,\r\n    \"editorial\": {\r\n        \"id\": 19\r\n    },\r\n    \"clasificaciones\": [\r\n        {\r\n            \"id\": 12\r\n        },\r\n        {\r\n            \"id\": 13\r\n        }\r\n    ],\r\n    \"autores\": [\r\n        {\r\n            \"id\": 2\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}libro/",
+									"host": [
+										"{{base}}{{v2}}libro"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "put_Libro",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"Nuevo Libro Editado\",\r\n    \"tipoPasta\": \"Blanda\",\r\n    \"sinopsis\": \"Libro de prueba que se ha editado\",\r\n    \"precio\": 19.99,\r\n    \"descuento\": 0,\r\n    \"editorial\": {\r\n        \"id\": 19\r\n    },\r\n    \"clasificaciones\": [\r\n        {\r\n            \"id\": 13\r\n        },\r\n        {\r\n            \"id\": 14\r\n        }\r\n    ],\r\n    \"autores\": [\r\n        {\r\n            \"id\": 3\r\n        },\r\n        {\r\n            \"id\": 4\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}libro/42",
+									"host": [
+										"{{base}}{{v2}}libro"
+									],
+									"path": [
+										"42"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete_Libro",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}libro/44",
+									"host": [
+										"{{base}}{{v2}}libro"
+									],
+									"path": [
+										"44"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Nacionalidad",
+					"item": [
+						{
+							"name": "findAll_Nacionalidades",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}nacionalidad/",
+									"host": [
+										"{{base}}{{v2}}nacionalidad"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById_Nacionalidad",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}nacionalidad/5",
+									"host": [
+										"{{base}}{{v2}}nacionalidad"
+									],
+									"path": [
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post_Nacionalidad",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nacionalidadName\": \"Inventada\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}nacionalidad/",
+									"host": [
+										"{{base}}{{v2}}nacionalidad"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "put_Nacionalidad",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nacionalidadName\": \"Inventada y Editada\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}nacionalidad/50",
+									"host": [
+										"{{base}}{{v2}}nacionalidad"
+									],
+									"path": [
+										"50"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete_Nacionalidad",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}nacionalidad/50",
+									"host": [
+										"{{base}}{{v2}}nacionalidad"
+									],
+									"path": [
+										"50"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editorial",
+					"item": [
+						{
+							"name": "findAll_Editoriales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}editorial/",
+									"host": [
+										"{{base}}{{v2}}editorial"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById_Editorial",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}editorial/5",
+									"host": [
+										"{{base}}{{v2}}editorial"
+									],
+									"path": [
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post_Editorial",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"editorialName\": \"Publisher_Inventada\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}editorial/",
+									"host": [
+										"{{base}}{{v2}}editorial"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "put_Editorial",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"editorialName\": \"Publisher Inventada y Editada\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}editorial/25",
+									"host": [
+										"{{base}}{{v2}}editorial"
+									],
+									"path": [
+										"25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete_Editorial",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}editorial/25",
+									"host": [
+										"{{base}}{{v2}}editorial"
+									],
+									"path": [
+										"25"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Clasificacion",
+					"item": [
+						{
+							"name": "findAll_Clasificaciones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}clasi/",
+									"host": [
+										"{{base}}{{v2}}clasi"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById_Clasificacion",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}clasi/5",
+									"host": [
+										"{{base}}{{v2}}clasi"
+									],
+									"path": [
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post_Clasificacion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipoClasificacion\": \"Clasi_Inventada\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}clasi/",
+									"host": [
+										"{{base}}{{v2}}clasi"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "put_Clasificacion",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipoClasificacion\": \"Clasi Inventada y Editada\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}{{v2}}clasi/42",
+									"host": [
+										"{{base}}{{v2}}clasi"
+									],
+									"path": [
+										"42"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete_Clasificacion",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base}}{{v2}}clasi/42",
+									"host": [
+										"{{base}}{{v2}}clasi"
+									],
+									"path": [
+										"42"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "v1",
+			"value": "/api/v1/",
+			"type": "string"
+		},
+		{
+			"key": "v2",
+			"value": "/api/v2/",
+			"type": "string"
+		}
+	]
+}
